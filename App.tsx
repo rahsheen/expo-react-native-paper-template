@@ -1,12 +1,21 @@
 import React from 'react';
-import { Provider } from 'react-native-paper';
-import App from './src';
-import { theme } from './src/core/theme';
+import { AuthenticatedRoutes, UnauthenticatedRoutes } from './src';
+import AppProviders from './src/context';
+import { useUser } from './src/context/user-context';
 
-const Main = () => (
-  <Provider theme={theme}>
-    <App />
-  </Provider>
-);
+// const AuthenticatedApp = React.lazy(() => import('./authenticated-app'))
+// const UnauthenticatedApp = React.lazy(() => import('./unauthenticated-app'))
+
+const Main = () => {
+  const { user } = useUser();
+  console.log('App User is', user);
+  const App = user ? AuthenticatedRoutes : UnauthenticatedRoutes;
+
+  return (
+    <AppProviders>
+      <App />
+    </AppProviders>
+  );
+};
 
 export default Main;
