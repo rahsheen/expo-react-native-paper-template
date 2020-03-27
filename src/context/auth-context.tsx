@@ -2,15 +2,22 @@ import React, { useEffect } from 'react';
 import { ActivityIndicator } from 'react-native-paper';
 import { View } from 'react-native';
 
-const AuthContext = React.createContext({ user: null });
+interface AuthContextType {
+  user?: object;
+  login?: (data: object) => {};
+  logout?: () => {};
+  register?: () => {};
+}
+
+const AuthContext = React.createContext<AuthContextType>({});
 
 function AuthProvider(props) {
-  const [data, setData] = React.useState<{ user?: object }>({});
+  const [data, setData] = React.useState<{ user?: object }>();
 
   // TODO: code for pre-loading the user's information if we have their token in
   // localStorage goes here
   useEffect(() => {
-    setData({ user: null });
+    setData({});
   }, []);
 
   // 🚨 this is the important bit.
@@ -26,19 +33,22 @@ function AuthProvider(props) {
     );
   }
 
-  const login = () => {}; // make a login request
+  const login = (data: object) => {
+    setData({ user: data });
+  }; // make a login request
   const register = () => {}; // register the user
-  const logout = () => {}; // clear the token in localStorage and the user data
+  const logout = () => {
+    setData({});
+  }; // clear the token in localStorage and the user data
 
   // note, I'm not bothering to optimize this `value` with React.useMemo here
   // because this is the top-most component rendered in our app and it will very
   // rarely re-render/cause a performance problem.
 
-  console.log("Data is", data)
+  console.log('Data is', data);
   const user = data?.user;
   const authContextValue = { user, login, logout, register };
 
-  console.log("User is", user, authContextValue)
   return <AuthContext.Provider value={authContextValue} {...props} />;
 }
 

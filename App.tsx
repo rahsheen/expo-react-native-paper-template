@@ -6,11 +6,13 @@ import { useUser } from './src/context/user-context';
 // const AuthenticatedApp = React.lazy(() => import('./authenticated-app'))
 // const UnauthenticatedApp = React.lazy(() => import('./unauthenticated-app'))
 
-const Main = () => {
-  const { user } = useUser();
+const App = () => {
+  const user = useUser();
   console.log('App User is', user);
-  const App = user ? AuthenticatedRoutes : UnauthenticatedRoutes;
+  return user ? <AuthenticatedRoutes /> : <UnauthenticatedRoutes />;
+};
 
+const Main = () => {
   return (
     <AppProviders>
       <App />
