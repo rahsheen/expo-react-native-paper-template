@@ -6,13 +6,13 @@ import Header from '../components/Header';
 import Button from '../components/Button';
 import TextInput from '../components/TextInput';
 import BackButton from '../components/BackButton';
-import { theme } from '../core/theme';
 import { Navigation } from '../types';
 import {
   emailValidator,
   passwordValidator,
   nameValidator,
 } from '../core/utils';
+import { useTheme } from 'react-native-paper';
 
 type Props = {
   navigation: Navigation;
@@ -22,6 +22,7 @@ const RegisterScreen = ({ navigation }: Props) => {
   const [name, setName] = useState({ value: '', error: '' });
   const [email, setEmail] = useState({ value: '', error: '' });
   const [password, setPassword] = useState({ value: '', error: '' });
+  const theme = useTheme();
 
   const _onSignUpPressed = () => {
     const nameError = nameValidator(name.value);
@@ -83,9 +84,22 @@ const RegisterScreen = ({ navigation }: Props) => {
       </Button>
 
       <View style={styles.row}>
-        <Text style={styles.label}>Already have an account? </Text>
+        <Text
+          style={{
+            color: theme.colors.accent,
+          }}
+        >
+          Already have an account?{' '}
+        </Text>
         <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
-          <Text style={styles.link}>Login</Text>
+          <Text
+            style={{
+              fontWeight: 'bold',
+              color: theme.colors.primary,
+            }}
+          >
+            Login
+          </Text>
         </TouchableOpacity>
       </View>
     </Background>
@@ -93,19 +107,12 @@ const RegisterScreen = ({ navigation }: Props) => {
 };
 
 const styles = StyleSheet.create({
-  label: {
-    color: theme.colors.secondary,
-  },
   button: {
     marginTop: 24,
   },
   row: {
     flexDirection: 'row',
     marginTop: 4,
-  },
-  link: {
-    fontWeight: 'bold',
-    color: theme.colors.primary,
   },
 });
 

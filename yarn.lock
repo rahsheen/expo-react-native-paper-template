@@ -1161,6 +1161,14 @@
     shortid "^2.2.15"
     use-subscription "^1.4.0"
 
+"@react-navigation/drawer@^5.3.4":
+  version "5.3.4"
+  resolved "https://registry.yarnpkg.com/@react-navigation/drawer/-/drawer-5.3.4.tgz#d82dba9a732b84c7e355b3f234f6346d13e960c7"
+  integrity sha512-Kqqbm4Ge3zcKKIaLZBpLPXf8kFRfi8XFWSWJa5zPlcX0ic+QHZR4T0wS0+PS8EqaXY494wEooV3ZXQ1cYz1Uuw==
+  dependencies:
+    color "^3.1.2"
+    react-native-iphone-x-helper "^1.2.1"
+
 "@react-navigation/native@^3.7.7":
   version "3.7.7"
   resolved "https://registry.yarnpkg.com/@react-navigation/native/-/native-3.7.7.tgz#288616d38c6cfc7fe3cc89aac901a5f6c38d0fa3"
@@ -2283,6 +2291,11 @@ escape-string-regexp@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz#a30304e99daa32e23b2fd20f51babd07cffca344"
   integrity sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w==
+
+eslint-plugin-react-hooks@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-3.0.0.tgz#9e80c71846eb68dd29c3b21d832728aa66e5bd35"
+  integrity sha512-EjxTHxjLKIBWFgDJdhKKzLh5q+vjTFrqNZX36uIxWS4OfyXe5DawqPj3U5qeJ1ngLwatjzQnmR0Lz0J0YH3kxw==
 
 esprima@^4.0.0:
   version "4.0.1"

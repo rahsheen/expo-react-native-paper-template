@@ -6,16 +6,18 @@ import BackButton from '../components/BackButton';
 import Logo from '../components/Logo';
 import Header from '../components/Header';
 import TextInput from '../components/TextInput';
-import { theme } from '../core/theme';
 import Button from '../components/Button';
 import { Navigation } from '../types';
+import { useTheme, Theme } from 'react-native-paper';
 
 type Props = {
   navigation: Navigation;
+  theme: Theme;
 };
 
 const ForgotPasswordScreen = ({ navigation }: Props) => {
   const [email, setEmail] = useState({ value: '', error: '' });
+  const theme = useTheme();
 
   const _onSendPressed = () => {
     const emailError = emailValidator(email.value);
@@ -57,7 +59,14 @@ const ForgotPasswordScreen = ({ navigation }: Props) => {
         style={styles.back}
         onPress={() => navigation.navigate('LoginScreen')}
       >
-        <Text style={styles.label}>← Back to login</Text>
+        <Text
+          style={{
+            color: theme.colors.accent,
+            width: '100%',
+          }}
+        >
+          ← Back to login
+        </Text>
       </TouchableOpacity>
     </Background>
   );
@@ -71,10 +80,6 @@ const styles = StyleSheet.create({
   button: {
     marginTop: 12,
   },
-  label: {
-    color: theme.colors.secondary,
-    width: '100%',
-  },
 });
 
-export default memo(ForgotPasswordScreen);
+export default ForgotPasswordScreen;

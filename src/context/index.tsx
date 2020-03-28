@@ -1,16 +1,22 @@
 import React from 'react';
 import { Provider as PaperProvider } from 'react-native-paper';
-import { theme } from '../core/theme';
 import { AuthProvider } from './auth-context';
+import { ThemeConsumer, ThemeProvider } from './theme-context';
 import { UserProvider } from './user-context';
 
 function AppProviders({ children }) {
   return (
-    <PaperProvider theme={theme}>
-      <AuthProvider>
-        <UserProvider>{children}</UserProvider>
-      </AuthProvider>
-    </PaperProvider>
+    <ThemeProvider>
+      <ThemeConsumer>
+        {({ theme }) => (
+          <PaperProvider theme={theme}>
+            <AuthProvider>
+              <UserProvider>{children}</UserProvider>
+            </AuthProvider>
+          </PaperProvider>
+        )}
+      </ThemeConsumer>
+    </ThemeProvider>
   );
 }
 export default AppProviders;

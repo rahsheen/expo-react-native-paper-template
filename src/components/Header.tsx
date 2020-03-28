@@ -1,22 +1,24 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { StyleSheet, Text } from 'react-native';
-import { theme } from '../core/theme';
+import { Theme, withTheme } from 'react-native-paper';
 
 type Props = {
   children: React.ReactNode;
+  theme: Theme;
 };
 
-const Header = ({ children }: Props) => (
-  <Text style={styles.header}>{children}</Text>
+const Header = ({ children, theme }: Props) => (
+  <Text style={[styles.header, { color: theme.colors.primary }]}>
+    {children}
+  </Text>
 );
 
 const styles = StyleSheet.create({
   header: {
     fontSize: 26,
-    color: theme.colors.primary,
     fontWeight: 'bold',
     paddingVertical: 14,
   },
 });
 
-export default memo(Header);
+export default withTheme(Header);
