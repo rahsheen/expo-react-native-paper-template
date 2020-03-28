@@ -1,15 +1,15 @@
-import React, { memo, useState } from 'react';
-import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
-import Background from '../components/Background';
-import Logo from '../components/Logo';
-import Header from '../components/Header';
-import Button from '../components/Button';
-import TextInput from '../components/TextInput';
+import React, { useState } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useTheme } from 'react-native-paper';
 import BackButton from '../components/BackButton';
+import Background from '../components/Background';
+import Button from '../components/Button';
+import Header from '../components/Header';
+import Logo from '../components/Logo';
+import TextInput from '../components/TextInput';
+import { useAuth } from '../context/auth-context';
 import { emailValidator, passwordValidator } from '../core/utils';
 import { Navigation } from '../types';
-import { useAuth } from '../context/auth-context';
-import { useTheme } from 'react-native-paper';
 
 type Props = {
   navigation: Navigation;

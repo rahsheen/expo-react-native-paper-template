@@ -1,9 +1,9 @@
-import React, { memo } from 'react';
-import Background from '../components/Background';
-import Logo from '../components/Logo';
-import Header from '../components/Header';
-import Button from '../components/Button';
+import React from 'react';
 import { Paragraph } from 'react-native-paper';
+import Background from '../components/Background';
+import Button from '../components/Button';
+import Header from '../components/Header';
+import Logo from '../components/Logo';
 import { Navigation } from '../types';
 
 type Props = {
@@ -30,4 +30,4 @@ const HomeScreen = ({ navigation }: Props) => (
   </Background>
 );
 
-export default memo(HomeScreen);
+export default HomeScreen;

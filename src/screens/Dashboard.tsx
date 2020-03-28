@@ -1,11 +1,11 @@
-import React, { memo } from 'react';
-import Background from '../components/Background';
-import Logo from '../components/Logo';
-import Header from '../components/Header';
+import React from 'react';
 import { Paragraph } from 'react-native-paper';
+import Background from '../components/Background';
 import Button from '../components/Button';
-import { Navigation } from '../types';
+import Header from '../components/Header';
+import Logo from '../components/Logo';
 import { useAuth } from '../context/auth-context';
+import { Navigation } from '../types';
 
 type Props = {
   navigation: Navigation;
@@ -28,4 +28,4 @@ const Dashboard = ({ navigation }: Props) => {
     </Background>
   );
 };
-export default memo(Dashboard);
+export default Dashboard;

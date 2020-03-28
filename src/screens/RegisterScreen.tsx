@@ -1,18 +1,18 @@
-import React, { memo, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import Background from '../components/Background';
-import Logo from '../components/Logo';
-import Header from '../components/Header';
-import Button from '../components/Button';
-import TextInput from '../components/TextInput';
+import React, { useState } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useTheme } from 'react-native-paper';
 import BackButton from '../components/BackButton';
-import { Navigation } from '../types';
+import Background from '../components/Background';
+import Button from '../components/Button';
+import Header from '../components/Header';
+import Logo from '../components/Logo';
+import TextInput from '../components/TextInput';
 import {
   emailValidator,
-  passwordValidator,
   nameValidator,
+  passwordValidator,
 } from '../core/utils';
-import { useTheme } from 'react-native-paper';
+import { Navigation } from '../types';
 
 type Props = {
   navigation: Navigation;
@@ -116,4 +116,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default memo(RegisterScreen);
+export default RegisterScreen;

@@ -1,18 +1,17 @@
-import React, { memo, useState } from 'react';
-import { Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { emailValidator } from '../core/utils';
-import Background from '../components/Background';
+import React, { useState } from 'react';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { Theme, useTheme } from 'react-native-paper';
 import BackButton from '../components/BackButton';
-import Logo from '../components/Logo';
-import Header from '../components/Header';
-import TextInput from '../components/TextInput';
+import Background from '../components/Background';
 import Button from '../components/Button';
+import Header from '../components/Header';
+import Logo from '../components/Logo';
+import TextInput from '../components/TextInput';
+import { emailValidator } from '../core/utils';
 import { Navigation } from '../types';
-import { useTheme, Theme } from 'react-native-paper';
 
 type Props = {
   navigation: Navigation;
-  theme: Theme;
 };
 
 const ForgotPasswordScreen = ({ navigation }: Props) => {
