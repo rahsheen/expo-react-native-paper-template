@@ -8,7 +8,6 @@ import { useUser } from './src/context/user-context';
 
 const App = () => {
   const user = useUser();
-  console.log('App User is', user);
   return user ? <AuthenticatedRoutes /> : <UnauthenticatedRoutes />;
 };
 
